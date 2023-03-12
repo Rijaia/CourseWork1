@@ -1,11 +1,12 @@
 import java.util.Arrays;
 
 public class Main {
+    private static Employee[] employees = new Employee[10];
     public static void main(String[] args) {
 
         System.out.println("Курсовая работа 1. Захарова Наталья");
 
-        Employee[] employees = new Employee[10];
+
 
         for (int i = 0; i < employees.length; i++) {
             employees[i] = new Employee("Иван" + i, "Иванович" + i, "Иванов" + i, 1 + (i % 5),  10000*(i+1));
@@ -37,28 +38,25 @@ public class Main {
         return totalSalary;
     }
     private static Employee calculateMinSalary(Employee[] employees) {
-        int min = employees[0].getSalary();
         Employee result = employees[0];
         for (int i = 0; i < employees.length; i++) {
-            if ( employees[i].getSalary() < min) {
-                min = employees[i].getSalary();
-                result = employees[i];
-            }
-        }
+            if ( employees[i].getSalary() > result.getSalary())
+            {result = employees[i];
+        }}
         return result;
     }
     private static Employee calculateMaxSalary(Employee[] employees) {
-        int max = employees[0].getSalary();
-        Employee result = employees[0];
-        for (int i = 0; i < employees.length; i++) {
-            if ( employees[i].getSalary() > max) {
-                max = employees[i].getSalary();
-                result = employees[i];
-            }
-        }
-        return result;
+            Employee result = employees[0];
+
+            for (int i = 0; i < employees.length; i++) {
+                if ( employees[i].getSalary() < result.getSalary())
+                {result = employees[i];
+                }}
+                return result;
+
     }
     private static double calculateAverageSalary(Employee[] employees) {
+
         return (double) calculateTotalSalary(employees)/employees.length;
     }
     private static void printFullName(Employee[] employees) {
@@ -67,6 +65,5 @@ public class Main {
             System.out.println(fullName);
         }
     }
-
 
 }
