@@ -6,8 +6,6 @@ public class Main {
 
         System.out.println("Курсовая работа 1. Захарова Наталья");
 
-
-
         for (int i = 0; i < employees.length; i++) {
             employees[i] = new Employee("Иван" + i, "Иванович" + i, "Иванов" + i, 1 + (i % 5),  10000*(i+1));
         }
@@ -26,7 +24,7 @@ public class Main {
     private static void printEmloyee(Employee[] employees) {
 
         for (int i = 0; i < employees.length; i++) {
-            System.out.println(employees[i]);
+            System.out.println(employees[i].toString());
         }
     }
 
